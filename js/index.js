@@ -5,18 +5,19 @@ $('.buttons').click('span', function (event){
   var $screen = $('#screen');
   var htmlString = $target.html();
 
+
   if ($target.prop("tagName") === "DIV") {
     return;
   }
-  else if($target.attr('id') === "clear") {
+  if($target.attr('id') === "clear") {
     operator = '';
     $screen.html('');
     return;
-  } else if ($target.hasClass('operator')) {
-    if ($target.html() === '=') {
-      $screen.html(equation());
-      operator = '';
-      return;
+  } if ($target.hasClass('operator')) {
+      if ($target.html() === '=') {
+        $screen.html(equation());
+        operator = '';
+        return;
     }
     if (operator.length > 0) {
       $screen.html('Error');
@@ -44,5 +45,7 @@ function equation () {
     return parseInt(nums[0]) * parseInt(nums[1]);
   }
 }
+
+
 
 });
